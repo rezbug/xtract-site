@@ -1,0 +1,30 @@
+body{
+    background: #000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+}
+
+h1 { 
+    font-size: var(--fs-xxl);
+    font-weight: var(--fw-semibold);
+ }
+h2 { 
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-regular);
+ }
+h3 { 
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-medium);
+ }
+h4 { 
+    font-size: var( --fs-sm);
+    font-weight: var(--fw-medium);
+ }
+p { 
+    font-size: var( --fs-xs);
+    font-weight: var(--fw-medium);
+ }
+

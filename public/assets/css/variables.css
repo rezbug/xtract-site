@@ -1,0 +1,18 @@
+:root {
+    /* Família da Fonte */
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+  
+    /* Pesos (Weights) - Baseados nos componentes de Pricing e Testimonials */
+    --fw-regular: 400;  /* Texto de apoio e descrições */
+    --fw-medium: 500;   /* Texto do switch Monthly/Annually */
+    --fw-semibold: 600; /* Botões e labels secundários */
+    --fw-bold: 700;     /* Títulos de Cards (Starter, Professional) */
+    --fw-extrabold: 800; /* Preços ($37) e Títulos principais (Hero) */
+  
+    /* Tamanhos (Font Sizes) */
+    --fs-xs: 1rem;   /* Tamanho padrao de texto" */
+    --fs-sm: 1.4375rem;  /* H4 */
+    --fs-lg: 2.1875rem;  /* H3 */
+    --fs-xl: 3.125rem;    /* H2*/
+    --fs-xxl: 4.375rem;  /* H1 */
+  }
