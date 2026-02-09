@@ -1,26 +1,67 @@
 .input {
+  display: flex;
   width: 100%;
-    height: 44px;
-    padding: 0 14px;
-  
-    background: #ffffff08;
-    color: #ffffffe6;
-  
-    border: 1px solid #4015c11f;
-    border-radius: 10px;
-  
-    outline: none;
-  }
+  height: 44px;
+  box-sizing: border-box;
+  font-size: var(--form-label--font-size);
+  font-weight: var(--font-weight-medium);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  padding: 0 14px;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+.input::placeholder {
+  font-size: var(--form-placeholder-font-size);
+  color: var(--form-placeholder--color)
+}
 
-  .message {
-    padding: 5px;
-    color:#fff;  
-    background: #433f3f;
-    border: 1px solid #a15a5a1f;
-    border-radius: 5px;
-  }
+.input:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
 
-  .label {
-    background: red;
-  }
-  
+
+.input:focus {
+  border-color: rgba(70, 160, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(70, 160, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+}
+.message {
+  padding: 5px;
+  color:#fff;  
+  background: #433f3f;
+  border: 1px solid #a15a5a1f;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+.label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  font-weight: 500;
+  font-size: var(--form-label--font-size);
+}
+
+.error {
+  border-color: rgba(255, 90, 90, 0.9) !important;
+  box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.18) !important;
+}
+
+.success {
+  border-color: rgba(60, 220, 140, 0.9) !important;
+  box-shadow: 0 0 0 3px rgba(60, 220, 140, 0.18) !important;
+}

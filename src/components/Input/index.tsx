@@ -1,5 +1,6 @@
-import { createState, html } from "@ezbug/slash";
+import { createState, html, type State } from "@ezbug/slash";
 import styles from "./styles.module.css";
+import type { TextInputState } from "./types";
 
 type InputType = "text" | "email" | "password" | "number";
 
@@ -7,7 +8,7 @@ export type InputChangeEvent = Event & {
 	target: HTMLInputElement;
 };
 
-type EventHandler = (event: InputChangeEvent) => void;
+type EventHandler = (event: InputChangeEvent, state: State<TextInputState>) => void;
 
 type Props = {
 	id: string;
@@ -20,34 +21,26 @@ type Props = {
 	errorMessage: string;
 };
 
-type ErrorHandler = (condition: boolean, message: string) => void;
-
-const state = createState({
+const state = createState<TextInputState>({
 	value: "",
 	showErrorMessage: false,
 	id: "",
+	status: "",
 });
 
 export function Input(props: Props) {
 	state.set({ ...state.get(), id: props.id });
 
-	const throwError = (condition: boolean, message: string) => {
-		if (condition) {
-			throw new Error(message);
-		}
+	const getStatusClass = () => {
+		const status = state.get().status;
+		if (!status) return "";
+		return status === "success" ? styles.success : styles.error;
 	};
 
-	const execute = (
-		condition: boolean,
-		errorHandler: ErrorHandler,
-		successHandler: EventHandler,
-	) => {
-		errorHandler(condition, "handler prop is not defined and must be.");
-		return (event: InputChangeEvent) => {
-			successHandler(event);
-			toggleErrorMessage(event);
-			setFocus(event);
-		};
+	const inputHandler = (event: InputChangeEvent) => {
+		props?.handler?.(event, state);
+		toggleErrorMessage(event);
+		setFocus(event);
 	};
 
 	const toggleErrorMessage = (event: InputChangeEvent) => {
@@ -68,20 +61,21 @@ export function Input(props: Props) {
 	};
 
 	return html`
-	<label>
+	<label class=${styles.container}>
 		<span class=${styles.label}>${props.label}</span>
 		<input
 		id=${props.id}
-		class=${styles.input}
+		class=${[styles.input, getStatusClass()]}
 		type=${props.type ?? "text"}
 		value=${state.get().value}
 		placeholder=${props.placeholder ?? ""}
-		onkeyup=${props.type !== "number" ? props?.handler : () => {}}
-		onChange=${props.type === "number" ? props?.handler : () => {}}
+		onkeyup=${inputHandler}
 		/>
-    	${state.get().showErrorMessage ? html`
-			<span class=${styles.message}>${props.errorMessage}</span>
-		` : ""}
+    	${
+				state.get().showErrorMessage
+					? html`<span class=${styles.message}>${props.errorMessage}</span>`
+					: ""
+			}
 	</label>
 	`;
 }
