@@ -1,0 +1,71 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.label {
+	font-weight: 500;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+/* trilho */
+.toggle {
+	width: 54px;
+	height: 32px;
+	padding: 0;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.03);
+	cursor: pointer;
+	position: relative;
+	outline: none;
+	transition: border-color 180ms ease, box-shadow 180ms ease,
+		background-color 180ms ease;
+}
+
+/* bolinha */
+.thumb {
+	width: 24px;
+	height: 24px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.92);
+	position: absolute;
+	top: 50%;
+	left: 4px;
+	transform: translateY(-50%);
+	transition: left 180ms ease;
+}
+
+/* OFF */
+.off:hover {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.off:focus {
+	border-color: rgba(70, 160, 255, 0.95);
+	box-shadow: 0 0 0 3px rgba(70, 160, 255, 0.22);
+	background: rgba(255, 255, 255, 0.04);
+}
+
+/* ON */
+.on {
+	background: rgba(70, 160, 255, 0.18);
+	border-color: rgba(70, 160, 255, 0.55);
+}
+
+.on .thumb {
+	left: 26px;
+}
+
+.on:focus {
+	border-color: rgba(70, 160, 255, 0.95);
+	box-shadow: 0 0 0 3px rgba(70, 160, 255, 0.22);
+}
+
+/* disabled */
+.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
