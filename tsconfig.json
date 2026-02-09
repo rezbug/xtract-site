@@ -1,19 +1,19 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "jsx": "preserve",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "types": ["@types/bun", "bun-types", "react"],
-    "noEmit": true,
-    "paths": {
-      "@/components/*": ["src/components/*"]
-    }
-  },
-  "include": ["src", "plugins", "scripts","global.d.ts"],
-  "exclude": ["public"]
+	"compilerOptions": {
+		"baseUrl": ".",
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"jsx": "preserve",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"types": ["@types/bun", "bun-types", "react"],
+		"noEmit": true,
+		"paths": {
+			"@/components/*": ["src/components/*"]
+		}
+	},
+	"include": ["src", "plugins", "scripts", "global.d.ts"],
+	"exclude": ["public"]
 }
