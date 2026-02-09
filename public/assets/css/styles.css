@@ -8,23 +8,23 @@ body{
 }
 
 h1 { 
-    font-size: var(--fs-xxl);
-    font-weight: var(--fw-semibold);
+    font-size: var(--font-size-xxl);
+    font-weight: var( --font-weight-semibold);
  }
 h2 { 
-    font-size: var(--fs-xl);
-    font-weight: var(--fw-regular);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-regular);
  }
 h3 { 
-    font-size: var(--fs-lg);
-    font-weight: var(--fw-medium);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
  }
 h4 { 
-    font-size: var( --fs-sm);
-    font-weight: var(--fw-medium);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
  }
 p { 
-    font-size: var( --fs-xs);
-    font-weight: var(--fw-medium);
+    font-size: var(--font-size-xs);
+    font-weight: var(---font-weight-medium);
  }
 
