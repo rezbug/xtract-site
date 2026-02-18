@@ -1,43 +1,35 @@
-import { html } from "@ezbug/slash";
+import { type Child, html } from "@ezbug/slash";
 import styles from "./styles.module.css";
-import type { ButtonProps, ButtonSize, ButtonVariant } from "./types";
 
-const getVariantClass = (variant: ButtonVariant) => {
-	return styles[variant];
-};
+type Variant = "primary" | "secondary" | "tertiary";
 
-const getSizeClass = (size: ButtonSize) => {
-	return styles[size];
-};
+type Props = {
+ handle: (e: MouseEvent) => void;
+ children: Child
+ variant: Variant;
+}
 
-export function Button(props: ButtonProps) {
-	const variant = props.variant ?? "primary";
-	const size = props.size ?? "md";
+export function Button(props: Props) {
+
+	const variantClassMap: Record<Variant, string> = {
+		primary: styles.primary,
+		secondary: styles.secondary,
+		tertiary: styles.tertiary,
+	};
+
+	const variant = props.variant
+		? variantClassMap[props.variant]
+		: variantClassMap.primary;
+
+
+
 
 	return html`
 		<button
-			type=${props.type ?? "button"}
-			class=${[
-				styles.button,
-				getVariantClass(variant),
-				getSizeClass(size),
-				props.fullWidth ? styles.fullWidth : "",
-				props.disabled ? styles.disabled : "",
-			]}
-			disabled=${props.disabled ?? false}
-			onclick=${props.onClick}
+			class=${[styles.button, variant]}
+			onclick=${(event: MouseEvent) => props.handle?.(event)}
 		>
-			${
-				props.startIcon
-					? html`<span class=${styles.icon}>${props.startIcon}</span>`
-					: ""
-			}
-			<span class=${styles.label}>${props.label}</span>
-			${
-				props.endIcon
-					? html`<span class=${styles.icon}>${props.endIcon}</span>`
-					: ""
-			}
+			${props.children}
 		</button>
 	`;
 }

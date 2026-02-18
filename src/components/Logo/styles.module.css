@@ -1,0 +1,24 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    max-width: 250px;
+}
+
+.wrap p {
+    font-weight: bold;
+}
+.small img{
+    width: 25px;
+}
+.big img{
+    width: 40px;
+}
+.small p{
+    font-size: 21px;
+}
+.big p{
+    font-size: 30px;
+}
+

@@ -1,0 +1,73 @@
+.wrap {
+	display: grid;
+	grid-template-columns: 5fr 5fr;
+	gap: 40px;
+	width: 100%;
+}
+
+.wrap :is(h1, h2, h3, h4) {
+	font-size: 18px;
+	margin: 0 0 12px 0;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	max-width: 340px;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.brandMark {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: #f7f7fb;
+}
+
+.Logo {
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+.Name p {
+	margin: 0;
+	font-size: 22px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+.brandDescription {
+	display: flex;
+	width: 100%;
+	max-width: 280px;
+
+}
+
+
+
+
+.wrap ul,
+.wrap li {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+}
+
+
+.wrap li {
+	flex-wrap: wrap;
+
+}

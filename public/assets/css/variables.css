@@ -10,11 +10,13 @@
     --font-weight-extrabold: 800; /* Preços ($37) e Títulos principais (Hero) */
   
     /* Tamanhos (Font Sizes) */
-    --font-size-xs: 1rem;   /* Tamanho padrao de texto" */
+    --font-size-xs: 0.875rem;   /* Tamanho padrao de texto" */
     --font-size-sm: 1.4375rem;  /* H4 */
     --font-size-lg: 2.1875rem;  /* H3 */
     --font-size-xl: 3.125rem;    /* H2*/
     --font-size-xxl: 4.375rem;  /* H1 */
+
+    --text-color: rgb(204,204,204);
 
   
     --form-label--font-size:var(--font-size-xs);

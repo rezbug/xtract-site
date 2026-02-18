@@ -1,0 +1,45 @@
+.newsletter {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.newsletterForm {
+	display: flex;
+	align-items: stretch;
+	gap: 12px;
+}
+
+.newsletterForm label > span {
+	display: none;
+}
+
+.newsletterForm input {
+	border-radius: 12px;
+}
+
+.newsletterField {
+	position: relative;
+	display: flex;
+	align-items: center;
+	background: #0f0f10;
+	border: 1px solid #2b2b2f;
+	border-radius:8px;
+	overflow: hidden;
+}
+
+.newsletterField label {
+	width: 100%;
+	max-width: 320px;
+}
+
+.newsletterField input {
+  height: 44px;
+  padding: 0 110px 0 16px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1;
+}

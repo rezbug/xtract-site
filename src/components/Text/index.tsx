@@ -1,4 +1,5 @@
 import { html } from "@ezbug/slash";
+import styles from "./styles.module.css";
 
 
  type Props = {
@@ -7,7 +8,7 @@ import { html } from "@ezbug/slash";
 
 export function Text (props:Props) {
     return html`
-    <p>${props.value}</p>
+    <p class=${styles.wrap}>${props.value}</p>
     `
 }
 

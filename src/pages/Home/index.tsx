@@ -6,7 +6,7 @@ import { Icon } from "@/components/Icon";
 import { ImageBlock } from "@/components/Image";
 import { Input, type InputChangeEvent } from "@/components/Input";
 import type { TextInputState } from "@/components/Input/types";
-import { NavLinks } from "@/components/Link";
+import { NavLinks } from "@/components/NavLinks";
 import { Textarea } from "@/components/TextArea";
 import { Title } from "@/components/Title";
 import type { ToggleChangeEvent, ToggleState } from "@/components/ToggleButton";
@@ -14,6 +14,8 @@ import { ToggleButton } from "@/components/ToggleButton";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Content } from "@/components/Content";
+import { Footer } from "@/components/Footer";
+
 
 const navItems = [
 	{ label: "Home", href: "/" },
@@ -97,7 +99,6 @@ export function Home() {
 	};
 
 	return html`
-
 	<${Container}>
 	<${Content}>
       <${Title}
@@ -151,7 +152,7 @@ export function Home() {
         handler=${onToggle}
       />
       <header>
-        <${NavLinks} items=${navItems} activeHref="/" />
+        <${NavLinks} data=${navItems} activeHref="/" />
       </header>
       <div style="display: flex; width: 100%; padding:45px;">
         <${ImageBlock}
@@ -173,7 +174,8 @@ export function Home() {
 		<${Button} label="Schedule a call" variant="ghost" size="md" />
 	   </div>
 	</${Content}>
-	</${Container}>	   
+	</${Container}>
+	<${Footer} />
 
-  `;
+   `;
 }

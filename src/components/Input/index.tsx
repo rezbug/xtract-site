@@ -10,12 +10,15 @@ export type InputChangeEvent = Event & {
 
 type EventHandler = (event: InputChangeEvent, state: State<TextInputState>) => void;
 
+type BorderStyle = "default" | "borderless"
+
 type Props = {
 	id: string;
 	value: string;
 	placeholder: string;
 	label: string;
 	type: InputType;
+	style: BorderStyle;
 	handler: EventHandler;
 	required: "true" | "false";
 	errorMessage: string;
@@ -28,8 +31,24 @@ const state = createState<TextInputState>({
 	status: "",
 });
 
-export function Input(props: Props) {
-	state.set({ ...state.get(), id: props.id });
+export function Input({
+	id,
+	placeholder,
+	type,
+	style = "default",
+	handler,
+	required,
+	errorMessage,
+}: Props) {
+	state.set({ ...state.get(), id: id });
+
+
+	const styleMap: Record<BorderStyle, string> = {
+		default: styles.default,
+		borderless: styles.borderless,
+	};
+
+	const cssStyle = styleMap[style];
 
 	const getStatusClass = () => {
 		const status = state.get().status;
@@ -38,7 +57,8 @@ export function Input(props: Props) {
 	};
 
 	const inputHandler = (event: InputChangeEvent) => {
-		props?.handler?.(event, state);
+		if(!handler) return
+		handler?.(event, state);
 		toggleErrorMessage(event);
 		setFocus(event);
 	};
@@ -46,7 +66,7 @@ export function Input(props: Props) {
 	const toggleErrorMessage = (event: InputChangeEvent) => {
 		state.set({
 			...state.get(),
-			showErrorMessage: !event.target.value.length && props.required === "true",
+			showErrorMessage: !event.target.value.length && required === "true",
 			value: event.target.value,
 		});
 	};
@@ -54,28 +74,27 @@ export function Input(props: Props) {
 	const setFocus = (event: InputChangeEvent) => {
 		setTimeout(() => {
 			const input = document.querySelector(
-				`input[id=${props.id}]`,
+				`input[id=${id}]`,
 			) as HTMLInputElement;
 			input.focus();
 		}, 10);
 	};
 
 	return html`
-	<label class=${styles.container}>
-		<span class=${styles.label}>${props.label}</span>
+
 		<input
-		id=${props.id}
-		class=${[styles.input, getStatusClass()]}
-		type=${props.type ?? "text"}
+		id=${id}
+		class=${[styles.input, getStatusClass(), cssStyle]}
+		type=${type ?? "text"}
 		value=${state.get().value}
-		placeholder=${props.placeholder ?? ""}
+		placeholder=${placeholder ?? ""}
 		onkeyup=${inputHandler}
 		/>
     	${
 				state.get().showErrorMessage
-					? html`<span class=${styles.message}>${props.errorMessage}</span>`
+					? html`<span class=${styles.message}>${errorMessage}</span>`
 					: ""
 			}
-	</label>
+
 	`;
 }

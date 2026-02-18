@@ -1,0 +1,14 @@
+{
+  "Slash Component Self Closing": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "slc",
+    "body": ["<${${1:Component}} />"],
+    "description": "Slash component self-closing: <${Component} />"
+  },
+  "Slash Component With Children": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "slt",
+    "body": ["<${${1:Component}}>", "  $0", "</${${1:Component}}>"] ,
+    "description": "Slash component with children"
+  }
+}

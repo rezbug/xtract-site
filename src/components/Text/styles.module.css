@@ -1,0 +1,6 @@
+.wrap {
+    line-height: 1.5rem;
+    font-size: var(--font-size-xs);
+    font-weight: normal;
+    color: var(--text-color);
+}

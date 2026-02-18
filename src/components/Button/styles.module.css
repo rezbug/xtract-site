@@ -1,15 +1,10 @@
 .button {
-	all: unset;
-	box-sizing: border-box;
-	display: inline-flex;
+	display:flex;
 	align-items: center;
 	justify-content: center;
-	gap: 10px;
-	border-radius: 8px;
+	border-radius:3px;
 	border: 1px solid transparent;
 	font-weight: 500;
-	line-height: 1;
-	margin-left: 16px;
 	cursor: pointer;
 	transition:
 		transform 120ms ease,
@@ -17,6 +12,7 @@
 		background 160ms ease,
 		color 160ms ease,
 		border-color 160ms ease;
+	font-size: var(--font-size-xs);
 }
 
 .button:focus-visible {
@@ -49,36 +45,14 @@
 	background: #141416;
 }
 
-.ghost {
+.tertiary {
 	background: transparent;
 	color: #e9ebf6;
 	border-color: rgba(255, 255, 255, 0.12);
 }
 
-.ghost:hover {
+.tertiary:hover {
 	background: #141416;
-}
-
-.sm {
-	height: 36px;
-	padding: 0 20px;
-	font-size: 0.9rem;
-}
-
-.md {
-	height: 42px;
-	padding: 0 24px;
-	font-size: 0.95rem;
-}
-
-.lg {
-	height: 48px;
-	padding: 0 28px;
-	font-size: 1rem;
-}
-
-.fullWidth {
-	width: 100%;
 }
 
 .disabled,
@@ -89,17 +63,3 @@
 	transform: none;
 }
 
-.label {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	white-space: nowrap;
-}
-
-.icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 18px;
-	height: 18px;
-}
