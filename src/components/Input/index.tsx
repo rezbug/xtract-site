@@ -8,9 +8,12 @@ export type InputChangeEvent = Event & {
 	target: HTMLInputElement;
 };
 
-type EventHandler = (event: InputChangeEvent, state: State<TextInputState>) => void;
+type EventHandler = (
+	event: InputChangeEvent,
+	state: State<TextInputState>,
+) => void;
 
-type BorderStyle = "default" | "borderless"
+type BorderStyle = "default" | "borderless";
 
 type Props = {
 	id: string;
@@ -40,9 +43,6 @@ export function Input({
 	required,
 	errorMessage,
 }: Props) {
-	state.set({ ...state.get(), id: id });
-
-
 	const styleMap: Record<BorderStyle, string> = {
 		default: styles.default,
 		borderless: styles.borderless,
@@ -57,10 +57,11 @@ export function Input({
 	};
 
 	const inputHandler = (event: InputChangeEvent) => {
-		if(!handler) return
+		if (!handler) return;
 		handler?.(event, state);
 		toggleErrorMessage(event);
-		setFocus(event);
+		setFocus();
+		console.log(state.get())
 	};
 
 	const toggleErrorMessage = (event: InputChangeEvent) => {
@@ -68,10 +69,11 @@ export function Input({
 			...state.get(),
 			showErrorMessage: !event.target.value.length && required === "true",
 			value: event.target.value,
+			id,
 		});
 	};
 
-	const setFocus = (event: InputChangeEvent) => {
+	const setFocus = () => {
 		setTimeout(() => {
 			const input = document.querySelector(
 				`input[id=${id}]`,
